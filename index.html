@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betting Agreement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas"></script>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen p-4">
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md text-center">
+        <h1 class="text-2xl font-bold mb-4">Betting Agreement</h1>
+        <p>Owner: <span class="text-yellow-400">Ritik Kaliyar</span></p>
+        
+        <form action="mailto:chaudharyyritik@gmail.com" method="POST" enctype="multipart/form-data" name="EmailForm" class="mt-4">
+            <input type="text" name="Contact-Name" placeholder="Your Name" class="mt-3 w-full p-2 rounded bg-gray-700 border-none">
+            <input type="email" name="Contact-Email" placeholder="Your Email" class="mt-2 w-full p-2 rounded bg-gray-700 border-none">
+            <input type="tel" name="Contact-Phone" placeholder="Your Phone" class="mt-2 w-full p-2 rounded bg-gray-700 border-none">
+            <input type="number" name="Contact-Share" placeholder="Your % Share in Total Money" class="mt-2 w-full p-2 rounded bg-gray-700 border-none">
+            
+            <div class="mt-4 text-left text-sm bg-gray-700 p-3 rounded">
+                <h2 class="font-bold">Terms and Conditions</h2>
+                <p class="mt-2">1. The betting agreement is legally binding.</p>
+                <p>2. Your share percentage must be accurately reported.</p>
+                <p>3. The owner holds no responsibility for losses.</p>
+                <p>4. By accepting, you agree to these terms.</p>
+                <input type="checkbox" id="terms" class="mt-2"> <label for="terms"> I agree to the terms and conditions</label>
+            </div>
+            
+            <button id="agreeBtn" type="submit" class="mt-4 w-full bg-gray-500 text-black py-2 rounded cursor-not-allowed" disabled>Agree & Send Email</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("terms").addEventListener("change", function() {
+            const btn = document.getElementById("agreeBtn");
+            if (this.checked) {
+                btn.classList.remove("bg-gray-500", "cursor-not-allowed");
+                btn.classList.add("bg-yellow-500");
+                btn.disabled = false;
+            } else {
+                btn.classList.add("bg-gray-500", "cursor-not-allowed");
+                btn.classList.remove("bg-yellow-500");
+                btn.disabled = true;
+            }
+        });
+    </script>
+</body>
+</html>
